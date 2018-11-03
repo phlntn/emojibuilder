@@ -1,0 +1,27 @@
+.Library ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Library li {
+  flex-grow: 0;
+}
+.Library li:hover {
+  background: #aab7c4;
+}
+.Library li:active {
+  opacity: 0.75;
+}
+
+.Library .category {
+  flex-basis: 100%;
+  background: #e6ebf1 !important;
+  margin: 5px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 85%;
+}
+
+.Library .category:first-child {
+  margin-top: 0;
+}

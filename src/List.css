@@ -1,0 +1,33 @@
+.List {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.List ul {
+  overflow: auto;
+}
+
+.List li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.List .dragged {
+  opacity: 0.33;
+}
+
+.List img.asset {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at center, rgba(251, 228, 125, 0.5) 62%, transparent 63%);
+}
+
+.List .flipped img.asset {
+  transform: scale(-1, 1);
+}

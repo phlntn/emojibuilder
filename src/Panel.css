@@ -1,0 +1,27 @@
+.Panel {
+  flex: 1 0 1px;
+
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Panel + .Panel {
+  margin-left: 0;
+}
+
+.Panel.preview {
+  flex: 0 0 400px;
+}
+
+.Panel > footer {
+  margin-top: 10px;
+}
+
+.Panel > footer p {
+  color: #aab7c4;
+  font-size: 12px;
+  margin: 8px;
+}

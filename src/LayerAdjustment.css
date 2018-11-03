@@ -1,0 +1,21 @@
+.LayerAdjustment {
+  display: flex;
+  font-size: 12px;
+}
+
+.LayerAdjustment + .LayerAdjustment {
+  margin-left: 10px;
+}
+
+.LayerAdjustment label {
+  margin: 2px 5px 0 0;
+}
+
+.LayerAdjustment input {
+  width: 100%;
+  flex: 1 1;
+  border-radius: 2px;
+  border: none;
+  padding: 2px 0 2px 4px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}

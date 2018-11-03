@@ -92,14 +92,13 @@ class Canvas extends Component {
   onDrop = (e) => {
     this.onDrag(e);
     
-    const file = e.dataTransfer.files[0];
-    const reader = new FileReader();
-        
-    reader.onloadend = (e) => {
-      App.addCustomAsset(file.name, reader.result);
-    }
-        
-    reader.readAsDataURL(file);
+    Array.from(e.dataTransfer.files)
+    .filter(file => /(.png|.jpeg|.jpg|.gif)$/.test(file.name))
+    .forEach(file => {
+      const reader = new FileReader();
+      reader.onloadend = (e) => App.addCustomAsset(file.name, reader.result);
+      reader.readAsDataURL(file);
+    })
   }
 }
 

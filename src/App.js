@@ -124,10 +124,10 @@ class App extends Component {
       img,
     };
 
-    const assets = [...this.state.assets];
-    assets.unshift(asset);
-
     img.onload = (e) => { 
+      const assets = [...this.state.assets];
+      assets.unshift(asset);
+
       this.setState({ assets }, () => {
         this.addLayer(asset.name);
       });

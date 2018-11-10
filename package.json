@@ -22,5 +22,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "/stuff/emojibuilder"
+  "homepage": "/emojibuilder"
 }

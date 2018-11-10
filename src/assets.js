@@ -112,6 +112,7 @@ const rawAssets = [
   { name: 'eye_open_small',               modifier: 'open eye'                    },
   { name: 'eye_open_large',               modifier: 'open eye'                    },
   { name: 'eye_rolling',                  modifier: 'rolling eye'                 },
+  { name: 'eye_pleading',                 modifier: 'pleading eye'                },
 
   { name: 'eye_star',                     modifier: 'star eye'                    },
   { name: 'eye_heart',                    modifier: 'heart eye'                   },
@@ -125,6 +126,7 @@ const rawAssets = [
   { name: 'mouth_beaming',                adjective: 'grinning'                   },
   { name: 'mouth_small_raised',           adjective: 'smiling'                    },
   { name: 'mouth_smirking',               adjective: 'smirking'                   },
+  { name: 'mouth_wavy',                   modifier: 'wavy mouth'                  },
 
   { name: 'mouth_grimacing',              adjective: 'grimacing'                  },
   { name: 'mouth_neutral',                adjective: 'neutral'                    },
@@ -177,6 +179,9 @@ const rawAssets = [
   { name: 'acc_head_bandage',             modifier: 'head bandage'                },
   { name: 'acc_medical_mask',             modifier: 'medical mask'                },
   { name: 'acc_tissue',                   adjective: 'sneezing'                   },
+
+  { name: 'acc_party_horn',               modifier: 'party horn'                  },
+  { name: 'acc_party_hat',                modifier: 'party hat'                   },
 
   { name: 'acc_glasses',                  modifier: 'glasses'                     },
   { name: 'acc_sunglasses',               modifier: 'sunglasses'                  },

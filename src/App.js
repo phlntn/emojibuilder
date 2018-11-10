@@ -16,7 +16,8 @@ import { toTitleCase } from './utils.js';
 class App extends Component {
   state = {
     assets,
-    assetsLoaded: false,
+    assetsLoaded: 0,
+    allAssetsLoaded: false,
     layers: [],
     title: '',
   };
@@ -32,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        { this.state.assetsLoaded ? (<>
+        { this.state.allAssetsLoaded ? (<>
 
           <div className='Panel'>
             <Library ref={this.Library} app={this} />
@@ -58,7 +59,7 @@ class App extends Component {
           </div>
 
         </>) : (
-          <Loading />
+          <Loading app={this} />
         ) }
       </div>
     );
@@ -71,7 +72,7 @@ class App extends Component {
       return new Promise((resolve, reject) => {
 
         const img = document.createElement('img');
-        img.crossOrigin = 'Anonymous';
+        img.crossorigin = 'anonymous';
       
         img.onload = () => {
           try {
@@ -80,6 +81,7 @@ class App extends Component {
             }
             asset.img = img;
             asset.src = img.src;
+            this.setState({ assetsLoaded: this.state.assetsLoaded + 1 });
             resolve();
           }
           catch(err) {
@@ -99,7 +101,7 @@ class App extends Component {
     })).then(() => {
       this.setState({
         assets,
-        assetsLoaded: true,
+        allAssetsLoaded: true,
       });
       this.randomize();
     });

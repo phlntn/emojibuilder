@@ -36,9 +36,9 @@ class Library extends Component {
       >
         <img
           className='asset'
-          alt={asset.name}
+          alt={asset.prettyName}
           src={asset.src}
-          crossOrigin={'Anonymous'}
+          crossorigin={'anonymous'}
           draggable={false}
         />
       </li>

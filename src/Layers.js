@@ -52,8 +52,9 @@ class Layers extends Component {
         <div className={mainRowClassName}>
           <img 
             className='asset'
-            src={layer.asset.src}
             alt={layer.asset.prettyName}
+            src={layer.asset.src}
+            crossorigin={'anonymous'}
             draggable={false}
           />
           <span>{layer.asset.prettyName}</span>

@@ -54,7 +54,6 @@ class Layers extends Component {
             className='asset'
             alt={layer.asset.prettyName}
             src={layer.asset.src}
-            crossorigin={'anonymous'}
             draggable={false}
           />
           <span>{layer.asset.prettyName}</span>

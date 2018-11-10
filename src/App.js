@@ -72,7 +72,6 @@ class App extends Component {
       return new Promise((resolve, reject) => {
 
         const img = document.createElement('img');
-        img.crossorigin = 'anonymous';
       
         img.onload = () => {
           try {

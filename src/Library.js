@@ -38,7 +38,6 @@ class Library extends Component {
           className='asset'
           alt={asset.prettyName}
           src={asset.src}
-          crossorigin={'anonymous'}
           draggable={false}
         />
       </li>

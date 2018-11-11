@@ -71,30 +71,37 @@ class App extends Component {
     return Promise.all(assets.map(asset => {
       return new Promise((resolve, reject) => {
 
-        const img = document.createElement('img');
-      
-        img.onload = () => {
-          try {
-            if (img.width !== config.compSize && img.height !== config.compSize) {
-              console.warn(`${asset.name} has wrong dimensions: ${asset.img.width} x ${asset.img.height}`);
-            }
-            asset.img = img;
-            asset.src = img.src;
-            this.setState({ assetsLoaded: this.state.assetsLoaded + 1 });
-            resolve();
-          }
-          catch(err) {
-            console.error(`${img.src} failed to load`, err);
-            reject();
-          }
-        };
-      
-        img.onerror = (e) => {
-          console.error(`${img.src} failed to load`, e);
-          reject();
+        const url = `${config.assetBasePath}/${asset.name}.png?v4`;
+
+        const options = {
+          method: 'GET',
+          mode: 'cors',
+          cache: 'force-cache'
         };
 
-        img.src = `${config.assetBasePath}/${asset.name}.png?v3`;
+        fetch(url, options)
+        .then((response) => response.blob() )
+        .then(blob => {
+          asset.src = URL.createObjectURL(blob);
+
+          asset.imgEl = <img
+            src={asset.src}
+            alt={asset.prettyName}
+            className='asset'
+            draggable={false}
+          />;
+
+          asset.img = document.createElement('img');
+          asset.img.onload = (e) => {
+            this.setState({ assetsLoaded: this.state.assetsLoaded + 1 });
+            resolve();
+          };
+          asset.img.src = asset.src;
+
+        }).catch(err => {
+          console.error(`${url} failed to load`, err);
+          reject();
+        });
 
       });
     })).then(() => {
@@ -110,18 +117,26 @@ class App extends Component {
     return this.state.assets.find(asset => asset.name === name);
   }
 
-  addCustomAsset = (name, data) => {
-    const img = document.createElement('img');
-
+  addCustomAsset = (name, src) => {
     name = name.substr(0, name.lastIndexOf('.')).replace(/_|-/g, ' ');
     const prettyName = toTitleCase(name);
 
+    const imgEl = <img
+      src={src}
+      alt={prettyName}
+      className='asset'
+      draggable={false}
+    />;
+
+    const img = document.createElement('img');
+
     const asset = {
       name,
-      prettyName: prettyName,
+      prettyName,
       category: 'custom',
       prettyCategory: 'Custom',
-      src: data,
+      src,
+      imgEl,
       img,
     };
 
@@ -134,7 +149,7 @@ class App extends Component {
       });
     }
 
-    img.src = data;
+    img.src = src;
   }
 
   randomize = () => {

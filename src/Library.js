@@ -34,12 +34,7 @@ class Library extends Component {
         title={asset.prettyName} 
         onClick={() => App.addLayer(asset.name)}
       >
-        <img
-          className='asset'
-          alt={asset.prettyName}
-          src={asset.src}
-          draggable={false}
-        />
+        {asset.imgEl}
       </li>
     </React.Fragment>);
   }

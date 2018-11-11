@@ -50,12 +50,7 @@ class Layers extends Component {
         onDragStart={(e) => this.onDragStart(e, layer)}
       >
         <div className={mainRowClassName}>
-          <img 
-            className='asset'
-            alt={layer.asset.prettyName}
-            src={layer.asset.src}
-            draggable={false}
-          />
+          {layer.asset.imgEl}
           <span>{layer.asset.prettyName}</span>
           <Button
             icon='position'

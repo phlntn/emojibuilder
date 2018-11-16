@@ -63,10 +63,10 @@ class Canvas extends Component {
       }
   
       this.ctx.translate(App.config.compSize/2, App.config.compSize/2);
-      this.ctx.scale(layer.transform.scale, layer.transform.scale);
-      this.ctx.rotate(layer.transform.rotate * Math.PI / 180);
+      this.ctx.scale(parseFloat(layer.transform.scale), parseFloat(layer.transform.scale));
+      this.ctx.rotate(parseFloat(layer.transform.rotate) * Math.PI / 180);
       this.ctx.translate(-App.config.compSize/2, -App.config.compSize/2);
-      this.ctx.translate(layer.transform.translateX, layer.transform.translateY);
+      this.ctx.translate(parseFloat(layer.transform.translateX), parseFloat(layer.transform.translateY));
   
       if (layer.flipped) {
         this.ctx.scale(-1, 1);

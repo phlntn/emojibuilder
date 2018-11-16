@@ -28,7 +28,7 @@ class LayerAdjustment extends Component {
   onChange = (e) => {
     let layers = [...App.state.layers];
     const index = layers.indexOf(this.props.layer);
-    layers[index].transform[this.props.prop] = parseFloat(e.target.value);
+    layers[index].transform[this.props.prop] = e.target.value;
 
     App.setState({ layers });
   }

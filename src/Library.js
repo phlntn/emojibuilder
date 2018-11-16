@@ -13,10 +13,17 @@ class Library extends Component {
 
   render() {
     return (
-      <div className='List Library'>
+      <div 
+        className='List Library'
+        onDragOver={this.onDrag}
+        onDragLeave={this.onDrag}
+        onDrop={this.onDrop}
+      >
         <ul>
           {App.state.assets.map(this.makeItem)}
         </ul>
+
+        { App.state.isDragging && <div className='dragOverlay'>Drop images here</div> }
       </div>
     );
   }
@@ -37,6 +44,26 @@ class Library extends Component {
         {asset.imgEl}
       </li>
     </React.Fragment>);
+  }
+  
+  onDrag = (e) => {
+    e.preventDefault();
+
+    App.setState({
+      isDragging: (e.type === 'dragover')
+    });
+  }
+  
+  onDrop = (e) => {
+    this.onDrag(e);
+    
+    Array.from(e.dataTransfer.files)
+    .filter(file => /(.png|.jpeg|.jpg|.gif)$/.test(file.name))
+    .forEach(file => {
+      const reader = new FileReader();
+      reader.onloadend = (e) => App.addCustomAsset(file.name, reader.result);
+      reader.readAsDataURL(file);
+    })
   }
 }
 

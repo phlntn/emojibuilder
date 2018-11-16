@@ -1,3 +1,7 @@
+.Library {
+  position: relative;
+}
+
 .Library ul {
   display: flex;
   flex-wrap: wrap;
@@ -24,4 +28,24 @@
 
 .Library .category:first-child {
   margin-top: 0;
+}
+
+.Library .dragOverlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(170, 183, 196, 0.75);
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+  font-weight: 300;
+
+  pointer-events: none;
 }

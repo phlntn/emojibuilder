@@ -14,16 +14,9 @@ class Canvas extends Component {
 
   render() {
     return (
-      <div 
-        className='Canvas'
-        onDragOver={this.onDrag}
-        onDragLeave={this.onDrag}
-        onDrop={this.onDrop}
-      >
+      <div className='Canvas'>
         <canvas className='main' ref={this.mainCanvas}></canvas>
         <canvas className='small' ref={this.smallCanvas}></canvas>
-
-        { App.state.isDragging && <div className='dragOverlay'>Drop images here</div> }
       </div>
     );
   }
@@ -79,26 +72,6 @@ class Canvas extends Component {
     });
 
     this.smallCanvas.current.getContext('2d').drawImage(this.mainCanvas.current, 0, 0);
-  }
-  
-  onDrag = (e) => {
-    e.preventDefault();
-
-    App.setState({
-      isDragging: (e.type === 'dragover')
-    });
-  }
-  
-  onDrop = (e) => {
-    this.onDrag(e);
-    
-    Array.from(e.dataTransfer.files)
-    .filter(file => /(.png|.jpeg|.jpg|.gif)$/.test(file.name))
-    .forEach(file => {
-      const reader = new FileReader();
-      reader.onloadend = (e) => App.addCustomAsset(file.name, reader.result);
-      reader.readAsDataURL(file);
-    })
   }
 }
 

@@ -1,8 +1,25 @@
 .App {
-  display: flex;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.App > header {
+  text-align: center;
+  color: #aab7c4;
+  font-size: 12px;
+  margin: 15px 20px 0;
+}
+
+.App > header span {
+  margin: 0 20px;
+}
+
+.App > main {
+  display: flex;
 }

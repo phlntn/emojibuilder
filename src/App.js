@@ -8,6 +8,7 @@ import Layers from './Layers.js';
 import Canvas from './Canvas.js';
 import Title from './Title.js';
 import Button from './Button.js';
+import Import from './Import.js';
 
 import config from './config.js';
 import assets from './assets.js';
@@ -35,28 +36,38 @@ class App extends Component {
       <div className='App'>
         { this.state.allAssetsLoaded ? (<>
 
-          <div className='Panel'>
-            <Library ref={this.Library} app={this} />
-            <footer>
-              <p>built by <a href='https://twitter.com/phlntn'>@phlntn</a> &nbsp;/&nbsp; assets © Apple pls don't sue me</p>
-            </footer>
-          </div>
+          <header>
+            <span>Emojibuilder v1.2</span>
+            <span>Built by <a href='https://twitter.com/phlntn'>@phlntn</a></span>
+            <span>Assets © Apple pls don't sue me</span>
+          </header>
 
-          <div className='Panel preview'>
-            <Canvas ref={this.Canvas} app={this} />
-            <Title ref={this.Title} app={this} />
-            <footer>
-              <Button label='Save' onClick={this.save} _ref={this.SaveButton} />
-            </footer>
-          </div>
+          <main>
 
-          <div className='Panel'>
-            <Layers ref={this.Layers} app={this} />
-            <footer>
-              <Button label='Randomize' onClick={this.randomize} />
-              <Button label='Clear' onClick={this.clear} />
-            </footer>
-          </div>
+            <div className='Panel'>
+              <Library ref={this.Library} app={this} />
+              <footer>
+                <Import app={this} />
+              </footer>
+            </div>
+
+            <div className='Panel preview'>
+              <Canvas ref={this.Canvas} app={this} />
+              <Title ref={this.Title} app={this} />
+              <footer>
+                <Button label='Save' onClick={this.save} _ref={this.SaveButton} />
+              </footer>
+            </div>
+
+            <div className='Panel'>
+              <Layers ref={this.Layers} app={this} />
+              <footer>
+                <Button label='Randomize' onClick={this.randomize} />
+                <Button label='Clear' onClick={this.clear} />
+              </footer>
+            </div>
+
+          </main>
 
         </>) : (
           <Loading app={this} />

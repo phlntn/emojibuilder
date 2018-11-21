@@ -169,6 +169,7 @@ const rawAssets = [
 
   { name: 'acc_lying_nose',               adjective: 'lying'                      },
   { name: 'acc_human_nose',                                                       },
+  { name: 'acc_cat_nose',                                                         },
 
   { name: 'acc_sweat',                    adjective: 'sweating'                   },
   { name: 'acc_tear_big',                 adjective: 'crying'                     },

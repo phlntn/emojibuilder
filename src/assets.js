@@ -43,6 +43,11 @@ const rawAssets = [
     position:   0,
   },
   {
+    name:       'face_clown',
+    base:       'clown face',
+    position:   0,
+  },
+  {
     name:       'face_cat',
     base:       'cat face',
     position:   0,
@@ -69,6 +74,11 @@ const rawAssets = [
     position:   0,
     translate:  [0.02, 0.07],
     scale:      0.96
+  },
+  {
+    name:       'face_alien',
+    base:       'alien face',
+    position:   0,
   },
 
   // { name: 'acc_test' },
@@ -113,9 +123,12 @@ const rawAssets = [
   { name: 'eye_open_large',               modifier: 'open eye'                    },
   { name: 'eye_rolling',                  modifier: 'rolling eye'                 },
   { name: 'eye_pleading',                 modifier: 'pleading eye'                },
+  { name: 'eye_clown',                    modifier: 'clown eye'                   },
 
   { name: 'eye_star',                     modifier: 'star eye'                    },
   { name: 'eye_heart',                    modifier: 'heart eye'                   },
+  { name: 'eye_alien',                    modifier: 'alien eye'                   },
+  { name: 'eye_robot',                    modifier: 'robot eye'                   },
 
   // Mouths
 
@@ -156,6 +169,9 @@ const rawAssets = [
   { name: 'mouth_tongue_hanging_out',     modifier: 'tongue hanging out'          },
   { name: 'mouth_money',                  modifier: 'money mouth'                 },
   { name: 'mouth_zipper',                 modifier: 'zipper mouth'                },
+  { name: 'mouth_alien',                  modifier: 'alien mouth'                 },
+  { name: 'mouth_clown',                  modifier: 'clown mouth'                 },
+  { name: 'mouth_robot',                  modifier: 'robot mouth'                 },
 
   // Accessories
 
@@ -169,6 +185,8 @@ const rawAssets = [
 
   { name: 'acc_lying_nose',               adjective: 'lying'                      },
   { name: 'acc_human_nose',                                                       },
+  { name: 'acc_clown_nose',                                                       },
+  { name: 'acc_robot_nose',                                                       },
 
   { name: 'acc_sweat',                    adjective: 'sweating'                   },
   { name: 'acc_tear_big',                 adjective: 'crying'                     },

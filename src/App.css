@@ -22,4 +22,5 @@
 
 .App > main {
   display: flex;
+  min-height: 0;
 }
